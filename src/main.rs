@@ -22,7 +22,6 @@ where
 }
 
 fn sort_array(v: &mut [i32]) -> usize {
-    println!("sorting {:?}", v);
     let lowest = 0;
     let highest = v.len() - 1;
     let pivot = v[highest];
@@ -35,7 +34,6 @@ fn sort_array(v: &mut [i32]) -> usize {
         }
         lowest_running += 1;
     }
-    println!("before last swap {:?}", v);
     v.swap(lowest_idx, highest);
     return lowest_idx;
 }
@@ -47,7 +45,6 @@ fn quicksort_impl(v: &mut [i32]){
     let lowest = 0;
     let highest = v.len();
     let pivot_idx = sort_array(&mut v[lowest..highest]);
-    println!("after sort_array {:?}, pivot idx {} lowest {} highest {}", v, pivot_idx, lowest, highest);
     quicksort_impl(&mut v[lowest..pivot_idx]);
     quicksort_impl(&mut v[pivot_idx + 1..highest]);
 }
